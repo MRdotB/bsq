@@ -17,21 +17,19 @@ func_cmp() {
 }
 # Begin tests
 echo "$B""_______________Begin tests_______________""$N"
-# Create files for test
-./game_generator 10 10 5 | > f1
-./game_generator 10 10 5 | tail -n +2 | > bm
-
 # Errors tests
 # test1 if the file doesn't exist
 ./bsq void_file 2>&1 | cat -e > a
 echo "map error" | cat -e > b
 func_cmp a b
-# test2 if the file is an invalid map
-./bsq bm 2>&1 | cat -e > a
-echo "map error" | cat -e > b
-func_cmp a b
+# test2 if the file is empty
 
-# delete files
-rm a b f1
+# test3 if the file info is invalid
+
+# test when file info is valid
+# test4 if the map have an invalid sign
+# test5 if the map contain more or less than (x + 1) * y
+
+# test6 if no file is provied it should read on 0
 echo "$B""_______________End tests_______________""$N"
 
