@@ -57,16 +57,22 @@ void	get_file_info(char* file_name, t_file_info *r)
 		buf[ret] = '\0';
 		str = ft_concat(str, buf);
 	}
-	r->total = ft_strlen(str) + 1;
+	ret = 0;
+	while (read(fd, buf, 1) && buf[0] != '\n')
+		ret++;
+	r->info_len = ft_strlen(str) + 1;
 	r->sign = str_cut_3_last(str); 
-	r->nb_line = ft_atoi(str);
+	r->y_max = ft_atoi(str);
+	r->x_max = ret;
+	close(fd);
 }
 
 int		main(void)
 {
 	t_file_info r;
 
-	get_file_info("file1", &r);
-	printf("r.total = %d | r.sign = %s | r.nb_line = %d\n", r.total, r.sign, r.nb_line);
+	get_file_info("file2", &r);
+	printf("r.info_len = %d | r.sign = %s | ", r.info_len, r.sign);
+	printf("r.x_max = %d | r.y_max = %d\n", r.x_max, r.y_max);
 	return (0);
 }

@@ -9,8 +9,9 @@
 typedef struct	s_file_info
 {
 	char	*sign;
-	int		nb_line;
-	int		total;
+	int		info_len;
+	int		x_max;
+	int		y_max;
 }				t_file_info;
 
 void	ft_putchar(char c);
