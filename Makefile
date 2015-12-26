@@ -12,7 +12,7 @@
 
 NAME = bsq
 SRC = main.c	ft_putchar.c	ft_putstr.c		ft_putstr_err.c		ft_strlen.c\
-	  ft_atoi.c
+	  ft_atoi.c		ft_concat.c
 OBJ = $(SRC:.c=.o)
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra

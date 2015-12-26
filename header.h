@@ -17,6 +17,7 @@ typedef struct	s_file_info
 void	ft_putchar(char c);
 void	ft_putstr(char *str);
 void	ft_putstr_err(char *str);
+char	*ft_concat(char *str1, char *str2);
 int		ft_strlen(char *str);
 int		ft_atoi(char *s);
 
