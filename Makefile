@@ -32,4 +32,10 @@ fclean: clean
 
 re: fclean $(NAME)
 
+test: fclean $(NAME)
+		@cp bsq tests/bsq
+		@sh tests/test.sh
+		@rm tests/bsq
+
+
  .PHONY: clean fclean
