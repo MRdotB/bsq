@@ -17,5 +17,6 @@ void	ft_putchar(char c);
 void	ft_putstr(char *str);
 void	ft_putstr_err(char *str);
 int		ft_strlen(char *str);
+int		ft_atoi(char *s);
 
 #endif
