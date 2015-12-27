@@ -104,11 +104,11 @@ int		main(int ac, char **av)
 	int			i;
 
 	i = 1;
-	clean_r(&r);
 	if (ac == 1)
 		return (0); // read 0
 	while (i < ac)
 	{
+		clean_r(&r);
 		if (get_file_info(av[i], &r))
 			if (is_map_valid(av[i], &r))
 				printf("good map\n");
