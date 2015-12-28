@@ -78,21 +78,16 @@ char	**load_map(char *file, t_file_info *r)
 	char	**tab;
 	char 	j[r->info_len];
 
-	/*
-	printf("r.info_len = %d | r.sign = %s | ", r->info_len, r->sign);
-	printf("r.x_max = %d | r.y_max = %d\n", r->x_max, r->y_max);
-	*/
-
 	i = 0;
-	tab = (char **)malloc_t_sqrt(r->x_max + 1, r->y_max);
+	tab = malloc_t_sqrt(r->x_max + 1, r->y_max);
 	fd = open(file, O_RDONLY);
 	read(fd, j, r->info_len); // jump info
 	while (read(fd, tab[i], r->x_max + 1))
 	{
-		printf("tab = %s\n", tab[i]);
+		tab[i][r->x_max + 1] = '\0';
 		tab[i] = filtered_x(tab[i], 1);
 		i++;
 	}
-	tab[i] = '\0';
+	tab[i] = NULL;
 	return (tab);
 }
