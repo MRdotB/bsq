@@ -57,7 +57,7 @@ int		is_map_valid(char *file_name, t_file_info *r)
 	char j[r->info_len];
 
 	fd = open(file_name, O_RDONLY);
-	read(fd, j, r->info_len); // jump info
+	read(fd, j, r->info_len);	//	jump	info	-----
 	count = 0;
 	while ((read(fd, &buf, 1)))
 	{
@@ -81,13 +81,19 @@ char	**load_map(char *file, t_file_info *r)
 	i = 0;
 	tab = malloc_t_sqrt(r->x_max + 1, r->y_max);
 	fd = open(file, O_RDONLY);
-	read(fd, j, r->info_len); // jump info
+	read(fd, j, r->info_len);	//	jump	info	-----
 	while (read(fd, tab[i], r->x_max + 1))
 	{
 		tab[i][r->x_max + 1] = '\0';
-		tab[i] = filtered_x(tab[i], 1);
+		tab[i] = filtered_x(tab[i], 3);
 		i++;
 	}
-	tab[i] = NULL;
+	tab[i] = '\0';
+	i = 0;
+	while (i < r->y_max)
+	{
+		tab = filtered_y(tab, 3, i);
+		i++;
+	}
 	return (tab);
 }
