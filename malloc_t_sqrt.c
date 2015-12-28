@@ -12,12 +12,16 @@
 
 #include "lib.h"
 
-void		**malloc_t_sqrt(size_t x, size_t y)
+char		**malloc_t_sqrt(int x, int y)
 {
-	void	**tmp;
+	char	**tmp;
+	int		i;
 
-	tmp = (void *)malloc(sizeof(**tmp) * y);
-	while (y + 1)
-		tmp[y--] = (void **)malloc(sizeof(**tmp) * x);
+	tmp = (char**)malloc(sizeof(char**) * y);
+	while (i < y)
+	{
+		tmp[i] = (char*)malloc(sizeof(char*) * x + 1);
+		i++;
+	}
 	return (tmp);
 }
