@@ -40,6 +40,7 @@ void	ft_putstr(char *str);
 void	ft_putstr_err(char *str);
 char	**malloc_t_sqrt(int x, int y);
 char	**load_map(char *file, t_file_info *r);
+char	**low_gain(char **tab, int len);
 char	**nucleus(char **tab);
 int		get_file_info(char* file_name, t_file_info *r);
 int		is_map_valid(char *file_name, t_file_info *r);

@@ -47,18 +47,24 @@ char		*filtered_x(char *tab, int len)
 	return (tab);
 }
 
-static int	filtered_y_ex(char **tab, int len, int i, int y)
+static void	filtered_y_ex(char **tab, int len, int i, int y)
 {
-	int		tmp;
+	int		tmp;	//	fonction salle mais fonctionnel
+	int		n;
 
 	tmp = i;
-	while (len--)
+	n = 0;
+	while (len-- && tab[i + 1])
 	{
 		i++;
-		if (tab[i][y] != '.')
-			return (i);
+		n++;
+		if (tab[i][y] != 'x')
+		{
+			while (n--)
+				tab[tmp++][y] = '.';
+			return ;
+		}	
 	}
-	return (tmp);
 }
 
 char		**filtered_y(char **tab, int len, int y)
@@ -68,24 +74,19 @@ char		**filtered_y(char **tab, int len, int y)
 
 	i = 0;
 	k = 0;
-	while (tab[i])
+	while (tab[i + 1])	//	ça merde !!! si on enlève le +1
 	{
-		len = 0;
 		if (k == 0)
-			i = filtered_y_ex(tab, len, i, y);
-		k = 1;
+		{
+			if (tab[i][y] != 'x')
+				;
+			else
+				filtered_y_ex(tab, len, i, y);
+			k = 1;
+		}
 		if (tab[i][y] != 'x')
 			k = 0;
-		else
-			tab[i][y] = '.';
 		i++;
-		ft_putchar('a');
 	}
 	return (tab);
 }
-/*
-   char	**nucleus(char **tab)
-   {
-
-   }
- */
