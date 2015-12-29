@@ -17,7 +17,7 @@ char		**malloc_t_sqrt(int x, int y)
 	char	**tmp;
 	int		i;
 
-	tmp = (char**)malloc(sizeof(char**) * y);
+	tmp = (char**)malloc(sizeof(char**) * y + 1);
 	while (i < y)
 	{
 		tmp[i] = (char*)malloc(sizeof(char*) * x + 1);

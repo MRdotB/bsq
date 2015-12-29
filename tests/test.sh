@@ -41,7 +41,7 @@ func_cmp a b "4.If there is an invalid sign in the map"
 func_cmp a b "5.If the map contain more or less than (x+1) * y"
 
 # test6 multiple random sh1t
-./bsq "random_sh1t" invalid_sign lol 2>&1 | cat -e  > a
+./bsq randomsh1t invalid_sign lol 2>&1 | cat -e  > a
 printf "%s\n%s\n%s\n" "map error" "map error" "map error" | cat -e > b
 func_cmp a b "6. Multiple random sh1t"
 # test6 if no file is provied it should read on 0

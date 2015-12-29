@@ -39,7 +39,7 @@ int		get_file_info(char* file_name, t_file_info *r)
 	count = 0;
 	while (read(fd, &buf, 1) && buf != '\n')
 		count++;
-	if (ft_strlen(str) < 4)
+	if (ft_strlen(str) < 4 || (!(*str >= '0' && *str <= '9')))
 		return (0);
 	r->info_len = ft_strlen(str) + 1;
 	r->sign = str_cut_3_last(str); 
@@ -79,7 +79,7 @@ char	**load_map(char *file, t_file_info *r)
 	char 	j[r->info_len];
 
 	i = 0;
-	tab = malloc_t_sqrt(r->x_max + 1, r->y_max);
+	tab = malloc_t_sqrt(r->x_max + 1, r->y_max + 1);
 	fd = open(file, O_RDONLY);
 	read(fd, j, r->info_len);
 	while (read(fd, tab[i], r->x_max + 1))	// x
@@ -88,13 +88,16 @@ char	**load_map(char *file, t_file_info *r)
 		i++;
 	}
 	i = 0;
+	while (i < r->x_max)
+		tab[r->y_max][i++] = '\0';
+	i = 0;
 	while (i < r->y_max)
-		tab = filtered_y(tab, 6, i++);	// y
+		tab = filtered_y(tab, 6, i++, r);	// y
 	i = -1;
 	while (++i < r->y_max)
 		tab[i] = low_gain(tab[i], 6);	// low_gain
 	i = 0;
 	while (i < r->y_max)
-		tab = filtered_y(tab, 6, i++);	// y
+		tab = filtered_y(tab, 6, i++, r);	// y
 	return (tab);
 }

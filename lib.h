@@ -29,7 +29,7 @@ typedef struct	s_file_info
 
 char	*ffg(char *str);
 char	*filtered_x(char *tab, int len);
-char	**filtered_y(char **tab, int len, int y);
+char	**filtered_y(char **tab, int len, int x, t_file_info *r);
 int		ft_char_in_str(char c, char *match);
 char	*ft_concat(char *str1, char c);
 int		ft_strlen(char *str);
