@@ -16,4 +16,5 @@ void	ft_print_tables(char **tab)
 {
 	while (*tab != '\0')
 		ft_putstr(*tab++);
+	return ;
 }

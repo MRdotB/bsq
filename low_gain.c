@@ -12,28 +12,42 @@
 
 #include "lib.h"
 
-static void	low_gain_ex(char **tab, int len, int i, int j)
+static void	low_gain_ex(char *tab, int len, int i)
 {
+	int		tmp;
+	int		n;
+
+	tmp = i;
+	n = 0;
+	while (len-- && tab[i + 1])
+	{
+		i++;
+		n++;
+		if (tab[i] != 'x')
+		{
+			while (n--)
+				tab[tmp++] = '.';
+			return ;
+		}
+	}
 	return ;
 }
 
-char		**low_gain(char **tab, int len)	// no finished segmentationfalt
+char		*low_gain(char *tab, int len)	// no finished segmentationfalt
 {
-	int		i;
-	int		j;
+	int i;
+	int k;
 
 	i = 0;
-	j = 0;
+	k = 0;
 	while (tab[i])
 	{
-		while (tab[i][j] && tab[i])
-		{
-			ft_putchar(tab[i][j]);
-			if (tab[i][j] == 'x' && tab[i])
-				low_gain_ex(tab, len, i, j);
-			j++;
-		}
-		j = 0;
+		if (k == 0 && tab[i] == 'x')
+			low_gain_ex(tab, len, i);
+		k = 1;
+		if (tab[i] != 'x')
+			k = 0;
 		i++;
 	}
+	return (tab);
 }
