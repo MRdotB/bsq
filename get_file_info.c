@@ -39,7 +39,7 @@ int		get_file_info(char* file_name, t_file_info *r)
 	count = 0;
 	while (read(fd, &buf, 1) && buf != '\n')
 		count++;
-	if (ft_strlen(str) < 4)
+	if (ft_strlen(str) < 4 || (!(*str >= '0' && *str <= '9')))
 		return (0);
 	r->info_len = ft_strlen(str) + 1;
 	r->sign = str_cut_3_last(str); 
