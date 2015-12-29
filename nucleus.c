@@ -71,8 +71,8 @@ char		*filtered_x(char *tab, int len)
 	while (tab[i] != '\n')
 	{
 		j = 0;
-		while (tab[i] == 'x' && j++ < len && (tab[i - 1] == 'o' || i == 0))
-			if (tab[i + j] == 'o' || tab[i + j] == '\n')
+		while (tab[i] == 'x' && j++ < len && (tab[i - 1] != 'x' || i == 0))
+			if (tab[i + j] != 'x' || tab[i + j] == '\n')
 				while (j--)
 					tab[i + j] = '.';
 		i++;
@@ -91,8 +91,8 @@ char		**filtered_y(char **tab, int len, int x, t_file_info *r)
 	while (tab[i])
 	{
 		j = 0;
-		while (tab[i][x] == 'x' && j++ < len && (tab[i - f][x] == 'o' || i == 0))
-			if (tab[i + j][x] == 'o' || tab[i + j][x] == '\0')
+		while (tab[i][x] == 'x' && j++ < len && (tab[i - f][x] != 'x' || i == 0))
+			if (tab[i + j][x] != 'x' || tab[i + j][x] == '\0')
 				while (j--)
 					tab[i + j][x] = '.';
 		i++;
@@ -114,8 +114,8 @@ static void	filtered_y_ex(char **tab, int len, int i, int y)
 		n++;
 		if (tab[i][y] != 'x')
 		{
-			while (n--)
-				tab[tmp++][y] = '.';
+	while (n--)
+		tab[tmp++][y] = '.';
 			return ;
 		}	
 	}
