@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "lib.h"
-
+/*
 static int  filtered_x_ex(char *tab, int len, int i)
 {
 	int     tmp;
@@ -46,7 +46,61 @@ char		*filtered_x(char *tab, int len)
 	}
 	return (tab);
 }
+*/
+static char	*empty_to_filled(char *tab)
+{
+	int i;
 
+	i = 0;
+	while (tab[i] != '\n')
+	{
+		if (tab[i] == '.')
+			tab[i] = 'x';
+		i++;
+	}
+	return (tab);
+}
+
+char		*filtered_x(char *tab, int len)
+{
+	int i;
+	int j;
+
+	i = 0;
+	tab = empty_to_filled(tab);
+	while (tab[i] != '\n')
+	{
+		j = 0;
+		while (tab[i] == 'x' && j++ < len && (tab[i - 1] == 'o' || i == 0))
+			if (tab[i + j] == 'o' || tab[i + j] == '\n')
+				while (j--)
+					tab[i + j] = '.';
+		i++;
+	}
+	return (tab);
+}
+
+char		**filtered_y(char **tab, int len, int x, t_file_info *r)
+{
+	int i;
+	int j;
+	int f;
+
+	i = 0;
+	f = 0;
+	while (tab[i])
+	{
+		j = 0;
+		while (tab[i][x] == 'x' && j++ < len && (tab[i - f][x] == 'o' || i == 0))
+			if (tab[i + j][x] == 'o' || tab[i + j][x] == '\0')
+				while (j--)
+					tab[i + j][x] = '.';
+		i++;
+		f = 1;
+	}
+	return (tab);
+}
+/*
 static void	filtered_y_ex(char **tab, int len, int i, int y)
 {
 	int		tmp;	//	fonction salle mais fonctionnel
@@ -90,3 +144,4 @@ char		**filtered_y(char **tab, int len, int y)
 	}
 	return (tab);
 }
+*/

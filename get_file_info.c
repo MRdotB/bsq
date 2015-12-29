@@ -79,17 +79,20 @@ char	**load_map(char *file, t_file_info *r)
 	char 	j[r->info_len];
 
 	i = 0;
-	tab = malloc_t_sqrt(r->x_max + 1, r->y_max);
+	tab = malloc_t_sqrt(r->x_max + 1, r->y_max + 1);
 	fd = open(file, O_RDONLY);
 	read(fd, j, r->info_len);
 	while (read(fd, tab[i], r->x_max + 1))
 	{
-		tab[i] = filtered_x(tab[i], 3);
+		tab[i] = filtered_x(tab[i], 4);
 		i++;
 	}
 	i = 0;
+	while (i < r->x_max)
+		tab[r->y_max][i++] = '\0';
+	i = 0;
 	while (i < r->y_max)
-		tab = filtered_y(tab, 3, i++);
+		tab = filtered_y(tab, 3, i++, r);
 //	tab = low_gain(tab, 3);
 	return (tab);
 }
