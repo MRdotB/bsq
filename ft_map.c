@@ -101,6 +101,7 @@ void				load_map(void)
 {
 	int				i;
 	int				len;
+	int				*p;
 
 	i = -1;
 	len = 1;
@@ -117,9 +118,11 @@ void				load_map(void)
 	i = 0;
 	while (i < g_y)
 		tab = filtered_y(tab, len, i++);
-
-	int		*p;
+	i = 0;
+	while (++i < g_y)
+		tab[i] = low_gain(tab[i], len);   // low_gain
 	p = pos(tab);
+	tab = square(p[1], p[0], tab);
+
 	print_tables(tab);
-	printf("x: %d y: %d\n",p[0], p[1]);
 }

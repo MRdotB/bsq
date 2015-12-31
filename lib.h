@@ -33,5 +33,6 @@ void	**matrix_sqrt(unsigned int x, unsigned int y);
 int		*pos(char **tab);
 void	print_tables(char **tab);
 int		valid_map(char *file);
+char	**square(int x, int y, char **map);
 
 #endif
