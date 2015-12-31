@@ -32,5 +32,6 @@ char	*low_gain(char *tab, int len);
 void	**matrix_sqrt(unsigned int x, unsigned int y);
 void	print_tables(char **tab);
 int		valid_map(char *file);
+char	**square(int x, int y, char **map);
 
 #endif

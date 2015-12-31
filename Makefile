@@ -12,9 +12,9 @@
 
 NAME = bsq
 SRC = main.c	ft_putchar.c	ft_putstr.c		ft_putstr_err.c		\
-	  ft_print_tables.c		ft_strlen.c		ft_atoi.c				\
-	  matrix_sqrt.c		nucleus.c		ft_char_in_str.c		\
-	  ft_concat.c		low_gain.c		ft_map.c
+	  print_tables.c		ft_strlen.c		ft_atoi.c				\
+	  matrix_sqrt.c		nucleus.c		\
+	  ft_concat.c		low_gain.c		ft_map.c square.c
 
 OBJ = $(SRC:.c=.o)
 CC = gcc
