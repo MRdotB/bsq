@@ -107,5 +107,5 @@ void				load_map(void)	// No Finished	// Shit	// But is works
 	while (++i < g_y)
 		tab[i] = low_gain(tab[i], len);   // low_gain
 
-	print_tables(tab);
+	ft_print_tables(tab);
 }
