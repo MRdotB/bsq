@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   matrix_sqrt.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glodenos <glodenos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,23 +12,13 @@
 
 #include "lib.h"
 
-int		main(int argc, char ** argv)
+void				**matrix_sqrt(unsigned int x, unsigned int y)
 {
-	int	i;
+	void			**tmp;
+	unsigned int	i;
 
-	i = 1;
-	if (argc == 1)
-		return (0);	//	Future Read
-	while (i < argc)
-	{
-		if (open_map(argv[i]))
-			if (valid_map(argv[i]))
-				load_map();
-			else
-				ft_putstr_err("map error\n");
-		else
-			ft_putstr_err("map error\n");
-		i++;	
-	}
-	return (0);
-}	
+	tmp = (void**)malloc(sizeof(void**) * y);
+	while (i < y)
+		tmp[i++] = (void*)malloc(sizeof(void*) * x);
+	return (tmp);
+}

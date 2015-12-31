@@ -47,7 +47,7 @@ char		*filtered_x(char *tab, int len)
 	return (tab);
 }
 
-char		**filtered_y(char **tab, int len, int x, t_file_info *r)
+char		**filtered_y(char **tab, int len, int x)
 {
 	int i;
 	int j;

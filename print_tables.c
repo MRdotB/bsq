@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_print_tables.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glodenos <glodenos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,23 +12,9 @@
 
 #include "lib.h"
 
-int		main(int argc, char ** argv)
+void	print_tables(char **tab)
 {
-	int	i;
-
-	i = 1;
-	if (argc == 1)
-		return (0);	//	Future Read
-	while (i < argc)
-	{
-		if (open_map(argv[i]))
-			if (valid_map(argv[i]))
-				load_map();
-			else
-				ft_putstr_err("map error\n");
-		else
-			ft_putstr_err("map error\n");
-		i++;	
-	}
-	return (0);
-}	
+	while (*tab != '\0')
+		ft_putstr(*tab++);
+	return ;
+}

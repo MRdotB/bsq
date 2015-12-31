@@ -14,35 +14,23 @@
 # define LIB_H
 # include <fcntl.h>
 # include <stdlib.h>
-# include <unistd.h>
-# include <sys/types.h>
+# include <stdio.h>	// Remove if finished
 # include <sys/stat.h>
-#include <stdio.h> //TODO remove
+# include <sys/types.h>
+# include <unistd.h>
 
-typedef struct	s_file_info
-{
-	char	*sign;
-	int		info_len;
-	int		x_max;
-	int		y_max;
-}				t_file_info;
-
-char	*ffg(char *str);
 char	*filtered_x(char *tab, int len);
-char	**filtered_y(char **tab, int len, int x, t_file_info *r);
-int		ft_char_in_str(char c, char *match);
-char	*ft_concat(char *str1, char c);
-int		ft_strlen(char *str);
+char	**filtered_y(char **tab, int len, int x);
 int		ft_atoi(char *str);
-void	ft_print_tables(char **tab);
+char	*ft_concat(char *str, char c);
 void	ft_putchar(char c);
 void	ft_putstr(char *str);
 void	ft_putstr_err(char *str);
-char	**malloc_t_sqrt(int x, int y);
-char	**load_map(char *file, t_file_info *r);
+int		ft_strlen(char *str);
+void	load_map(void);
 char	*low_gain(char *tab, int len);
-char	**nucleus(char **tab);
-int		get_file_info(char* file_name, t_file_info *r);
-int		is_map_valid(char *file_name, t_file_info *r);
+void	**matrix_sqrt(unsigned int x, unsigned int y);
+void	print_tables(char **tab);
+int		valid_map(char *file);
 
 #endif
