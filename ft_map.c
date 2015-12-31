@@ -48,7 +48,7 @@ int					open_map(char *file)	//	25	lines
 
 static int			valid_map_ex(unsigned int i)	//	10	lines
 {
-	unsigned		j;
+	unsigned int	j;
 
 	while (++i < g_y)
 	{
@@ -81,31 +81,45 @@ int					valid_map(char *file)	//	20	lines
 	while (--i)
 		if (tab[i][g_x] != '\n')
 			return (0);
-	return (valid_map_ex(i - 1));
+	return (valid_map_ex(i));
 }
 
-void				load_map(void)	// No Finished	// Shit	// But is works
+static void			load_map_ex(int len)
 {
-	int	i;
-	int	len;
+	int				i;
 
-	len = 7;
+	i = 0;
+	while (i < g_y)
+		tab = filtered_y(tab, len, i++);
 	i = -1;
-	while (++i < g_y)						// x
+	while (++i < g_y)
+		tab[i] = low_gain(tab[i], len);
+
+}
+
+void				load_map(void)
+{
+	int				i;
+	int				len;
+
+	i = -1;
+	len = 1;
+	while (++i < g_y)
 		tab[i] = filtered_x(tab[i], len);
-
-	i = 0;
-	while (i < g_y)
-		tab = filtered_y(tab, len, i++);       // y
+	load_map_ex(len);
+	while (len_gain(tab) != 0)
+		load_map_ex(++len);
+	len--;
 	i = -1;
 	while (++i < g_y)
-		tab[i] = low_gain(tab[i], len);   // low_gain
+		tab[i] = filtered_x(tab[i], len);
+	load_map_ex(len);
 	i = 0;
 	while (i < g_y)
-		tab = filtered_y(tab, len, i++);       // y
-	i = 0;
-	while (++i < g_y)
-		tab[i] = low_gain(tab[i], len);   // low_gain
+		tab = filtered_y(tab, len, i++);
 
-	ft_print_tables(tab);
+	int		*p;
+	p = pos(tab);
+	print_tables(tab);
+	printf("x: %d y: %d\n",p[0], p[1]);
 }

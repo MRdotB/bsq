@@ -30,6 +30,7 @@ int		ft_strlen(char *str);
 void	load_map(void);
 char	*low_gain(char *tab, int len);
 void	**matrix_sqrt(unsigned int x, unsigned int y);
+int		*pos(char **tab);
 void	print_tables(char **tab);
 int		valid_map(char *file);
 
