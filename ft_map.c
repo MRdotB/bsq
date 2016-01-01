@@ -17,7 +17,7 @@ char			**tab;
 unsigned int	g_x;
 unsigned int	g_y;
 
-int					open_map(char *file)	//	25	lines
+int					open_map(char *file)
 {
 	char			buf;
 	int				fd;
@@ -46,7 +46,7 @@ int					open_map(char *file)	//	25	lines
 	return (1);
 }
 
-static int			valid_map_ex(unsigned int i)	//	10	lines
+static int			valid_map_ex(unsigned int i)
 {
 	unsigned int	j;
 
@@ -60,7 +60,7 @@ static int			valid_map_ex(unsigned int i)	//	10	lines
 	return (1);
 }
 
-int					valid_map(char *file)	//	20	lines
+int					valid_map(char *file)
 {
 	char			buf;
 	int				fd;
@@ -89,7 +89,7 @@ static void			load_map_ex(int len)
 	int				i;
 
 	i = 0;
-	while (i < g_y)
+	while (i < g_x)
 		tab = filtered_y(tab, len, i++);
 	i = -1;
 	while (++i < g_y)
@@ -120,7 +120,7 @@ void				load_map(void)
 		tab = filtered_y(tab, len, i++);
 	i = 0;
 	while (++i < g_y)
-		tab[i] = low_gain(tab[i], len);   // low_gain
+		tab[i] = low_gain(tab[i], len);
 	p = pos(tab);
 	tab = square(p[1], p[0], tab);
 	print_bsq(tab, len);
