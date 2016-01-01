@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lib.h                                              :+:      :+:    :+:   */
+/*   print_bsq.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glodenos <glodenos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,29 +10,40 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIB_H
-# define LIB_H
-# include <fcntl.h>
-# include <stdlib.h>
-# include <stdio.h>	// Remove if finished
-# include <sys/stat.h>
-# include <sys/types.h>
-# include <unistd.h>
+#include "lib.h"
 
-char	*filtered_x(char *tab, int len);
-char	**filtered_y(char **tab, int len, int x);
-int		ft_atoi(char *str);
-char	*ft_concat(char *str, char c);
-void	ft_putchar(char c);
-void	ft_putstr(char *str);
-void	ft_putstr_err(char *str);
-int		ft_strlen(char *str);
-void	load_map(void);
-char	*low_gain(char *tab, int len);
-void	**matrix_sqrt(unsigned int x, unsigned int y);
-int		*pos(char **tab);
-void	print_bsq(char **tab, int len);
-int		valid_map(char *file);
-char	**square(int x, int y, char **map);
+static int	search_obstacle(char *tab)
+{
+	int		i;
 
-#endif
+	i = 0;
+	while (tab[i] != '\n' && tab[i])
+	{
+		if (tab[i] == 'x')
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+void	print_bsq(char **tab, int len)
+{
+	int i;
+	int	k;
+
+	i = 0;
+	k = 0;
+	while (tab[i])
+	{
+		if (search_obstacle(tab[i]) && k == 0)
+		{
+			ft_putstr(tab[i]);
+			while (search_obstacle(tab[i++]))
+				ft_putstr(tab[i]);
+			k = 1;
+		}
+		else
+			ft_putstr(low_gain(tab[i], len + 1));
+		i++;
+	}
+}

@@ -123,6 +123,5 @@ void				load_map(void)
 		tab[i] = low_gain(tab[i], len);   // low_gain
 	p = pos(tab);
 	tab = square(p[1], p[0], tab);
-
-	print_tables(tab);
+	print_bsq(tab, len);
 }
