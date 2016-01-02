@@ -6,7 +6,7 @@
 /*   By: bchaleil <hello@baptistechaleil.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/02 12:10:46 by bchaleil          #+#    #+#             */
-/*   Updated: 2016/01/02 17:17:08 by bchaleil         ###   ########.fr       */
+/*   Updated: 2016/01/02 17:45:53 by bchaleil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,12 @@ static char	**check_x(int y, int x, char **map)
 {
 	int firstCountX;
 	int countX;
-	int ox;
 	int oy;
 
 	oy = y;
 	firstCountX = count_x(x, map[y]);
 	while (map[oy][x] == 'x')
 	{
-		ox = x;
 		countX = count_x(x, map[oy]);
 		while (firstCountX < countX)
 			map[oy][x + countX--] = '.';

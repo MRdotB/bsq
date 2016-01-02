@@ -6,7 +6,7 @@
 /*   By: glodenos <glodenos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2100/01/01 00:00:00 by glodenos          #+#    #+#             */
-/*   Updated: 2016/01/02 15:58:51 by bchaleil         ###   ########.fr       */
+/*   Updated: 2016/01/02 17:47:02 by bchaleil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int					valid_map(char *file)
 
 static void			load_map_ex(int len)
 {
-	int				i;
+	unsigned int	i;
 
 	i = 0;
 	while (i < g_x)
@@ -99,7 +99,7 @@ static void			load_map_ex(int len)
 
 void				load_map(void) // 26 lignes
 {
-	int				i;
+	unsigned int	i;
 	int				len;
 	int				*p;
 

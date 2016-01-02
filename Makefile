@@ -6,7 +6,7 @@
 #    By: bchaleil <bchaleil@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/17 12:49:42 by bchaleil          #+#    #+#              #
-#    Updated: 2016/01/02 15:04:55 by bchaleil         ###   ########.fr        #
+#    Updated: 2016/01/02 17:22:40 by bchaleil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRC = main.c	ft_putchar.c	ft_putstr.c		ft_putstr_err.c		\
 
 OBJ = $(SRC:.c=.o)
 CC = gcc
-CFLAGS =
+CFLAGS = -Wall -Werror -Wextra
 
 all: $(NAME)
 
