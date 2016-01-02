@@ -6,7 +6,7 @@
 /*   By: glodenos <glodenos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2100/01/01 00:00:00 by glodenos          #+#    #+#             */
-/*   Updated: 2100/01/01 00:00:00 by glodenos         ###   ########.fr       */
+/*   Updated: 2016/01/02 20:46:56 by bchaleil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ char		**filtered_y(char **tab, int len, int x)
 
 	i = 0;
 	f = 0;
-	while (tab[i])
+	while (tab[i][0])
 	{
 		j = 0;
 		while (tab[i][x] == 'x' && j++ < len && (tab[i - f][x] != 'x' || i == 0))

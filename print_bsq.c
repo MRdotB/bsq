@@ -6,7 +6,7 @@
 /*   By: glodenos <glodenos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2100/01/01 00:00:00 by glodenos          #+#    #+#             */
-/*   Updated: 2100/01/01 00:00:00 by glodenos         ###   ########.fr       */
+/*   Updated: 2016/01/02 20:46:33 by bchaleil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	print_bsq(char **tab, int len)
 
 	i = 0;
 	k = 0;
-	while (tab[i])
+	while (tab[i][0])
 	{
 		if (search_obstacle(tab[i]) && k == 0)
 		{

@@ -6,7 +6,7 @@
 /*   By: glodenos <glodenos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2100/01/01 00:00:00 by glodenos          #+#    #+#             */
-/*   Updated: 2016/01/02 17:47:02 by bchaleil         ###   ########.fr       */
+/*   Updated: 2016/01/02 21:28:31 by bchaleil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int					valid_map(char *file)
 
 	i = -1;
 	fd = open(file, O_RDONLY);
-	if ((tab = (char**)matrix_sqrt(g_x + 1, g_y + 2)) == NULL)
+	if ((tab = (char**)matrix_sqrt(g_x + 1, g_y + 1)) == NULL)
 		return (0);
 	while (read(fd, &buf, 1) && buf != '\n')
 		;

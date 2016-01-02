@@ -6,7 +6,7 @@
 /*   By: glodenos <glodenos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2100/01/01 00:00:00 by glodenos          #+#    #+#             */
-/*   Updated: 2016/01/02 17:46:32 by bchaleil         ###   ########.fr       */
+/*   Updated: 2016/01/02 20:46:34 by bchaleil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int			len_gain(char **tab)
 	j = -1;
 	len = 0;
 	tmp = 0;
-	while (tab[++i])
+	while (tab[++i][0])
 	{
 		while (tab[i][j] != '\n' && tab[i][j])
 		{
