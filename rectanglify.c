@@ -6,7 +6,7 @@
 /*   By: bchaleil <hello@baptistechaleil.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/02 12:10:46 by bchaleil          #+#    #+#             */
-/*   Updated: 2016/01/02 17:45:53 by bchaleil         ###   ########.fr       */
+/*   Updated: 2016/01/02 22:00:23 by bchaleil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,68 +16,68 @@ char			*g_motif;
 
 static int	count_x(int x, char *map)
 {
-	int		countX;
+	int		cx;
 
-	countX = -1;
+	cx = -1;
 	while (map[x++] == g_motif[2])
-		countX++;
-	return (countX);
+		cx++;
+	return (cx);
 }
 
 static int	count_y(int y, int x, char **map)
 {
-	int		countY;
+	int		cy;
 
-	countY = -1;
+	cy = -1;
 	while (map[y++][x] == g_motif[2])
-		countY++;
-	return (countY);
+		cy++;
+	return (cy);
 }
 
 static char	**check_x(int y, int x, char **map)
 {
-	int firstCountX;
-	int countX;
+	int fcx;
+	int cx;
 	int oy;
 
 	oy = y;
-	firstCountX = count_x(x, map[y]);
+	fcx = count_x(x, map[y]);
 	while (map[oy][x] == 'x')
 	{
-		countX = count_x(x, map[oy]);
-		while (firstCountX < countX)
-			map[oy][x + countX--] = '.';
-		if (firstCountX > countX)
+		cx = count_x(x, map[oy]);
+		while (fcx < cx)
+			map[oy][x + cx--] = '.';
+		if (fcx > cx)
 		{
-			firstCountX = countX;
+			fcx = cx;
 			oy = y;
 			continue ;
 		}
-		oy++;	
+		oy++;
 	}
 	return (map);
 }
 
 char	**rectanglify(int y, int x, char **map)
 {
-	int firstCountY;
-	int countY;
+	int fcy;
+	int cy;
 	int ox;
 	int oy;
 
 	map = check_x(y, x, map);
 	ox = x;
 	oy = y;
-	firstCountY = count_y(y, x, map);
+	fcy = count_y(y, x, map);
 	while (map[oy][ox] == 'x')
 	{
 		oy = y;
-		countY = count_y(y, ox, map);
-		while (firstCountY < countY)
-			map[y + countY--][ox] = '.';
-		if (firstCountY > countY)
+		cy = count_y(y, ox, map);
+		while (fcy < cy)
+			map[y + cy--][ox] = '.';
+		if (fcy > cy)
 		{
-			firstCountY = countY;
+			fcy = cy;
 			ox = x;
 			continue ;
 		}
