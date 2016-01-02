@@ -6,7 +6,7 @@
 /*   By: glodenos <glodenos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2100/01/01 00:00:00 by glodenos          #+#    #+#             */
-/*   Updated: 2016/01/02 20:46:33 by bchaleil         ###   ########.fr       */
+/*   Updated: 2016/01/02 22:06:36 by bchaleil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	search_obstacle(char *tab)
 	return (0);
 }
 
-void	print_bsq(char **tab, int len)
+void		print_bsq(char **tab, int len)
 {
 	int i;
 	int	k;
