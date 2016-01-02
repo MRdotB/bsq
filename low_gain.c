@@ -6,11 +6,13 @@
 /*   By: glodenos <glodenos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2100/01/01 00:00:00 by glodenos          #+#    #+#             */
-/*   Updated: 2016/01/02 20:46:34 by bchaleil         ###   ########.fr       */
+/*   Updated: 2016/01/02 22:13:12 by bchaleil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lib.h"
+
+char			*g_motif;
 
 int			len_gain(char **tab)
 {
@@ -27,7 +29,7 @@ int			len_gain(char **tab)
 	{
 		while (tab[i][j] != '\n' && tab[i][j])
 		{
-			if (tab[i][++j] == 'x')
+			if (tab[i][++j] == g_motif[2])
 				len++;
 			else
 			{
@@ -52,10 +54,10 @@ static void	low_gain_ex(char *tab, int len, int i)
 	{
 		i++;
 		n++;
-		if (tab[i] != 'x')
+		if (tab[i] != g_motif[2])
 		{
 			while (n--)
-				tab[tmp++] = '.';
+				tab[tmp++] = g_motif[0];
 			return ;
 		}
 	}
@@ -71,10 +73,10 @@ char		*low_gain(char *tab, int len)
 	k = 0;
 	while (tab[i])
 	{
-		if (k == 0 && tab[i] == 'x')
+		if (k == 0 && tab[i] == g_motif[2])
 			low_gain_ex(tab, len, i);
 		k = 1;
-		if (tab[i] != 'x')
+		if (tab[i] != g_motif[2])
 			k = 0;
 		i++;
 	}
@@ -94,7 +96,7 @@ int			*pos(char **tab)
 	{
 		while (tab[i][j] != '\n')
 		{
-			if (tab[i][j] == 'x')
+			if (tab[i][j] == g_motif[2])
 			{
 				tmp[0] = j;
 				tmp[1] = i;
