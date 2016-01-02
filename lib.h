@@ -6,7 +6,7 @@
 /*   By: glodenos <glodenos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2100/01/01 00:00:00 by glodenos          #+#    #+#             */
-/*   Updated: 2016/01/02 17:44:50 by bchaleil         ###   ########.fr       */
+/*   Updated: 2016/01/02 22:08:10 by bchaleil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define LIB_H
 # include <fcntl.h>
 # include <stdlib.h>
-# include <stdio.h>	// Remove if finished
 # include <sys/stat.h>
 # include <sys/types.h>
 # include <unistd.h>
