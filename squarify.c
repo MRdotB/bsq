@@ -1,3 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   squarify.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bchaleil <hello@baptistechaleil.fr>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/01/02 12:10:31 by bchaleil          #+#    #+#             */
+/*   Updated: 2016/01/02 12:55:13 by bchaleil         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "lib.h"
+
 char			*g_motif;
 
 static int	count_x(int x, char *map)
@@ -14,7 +28,7 @@ static int	count_y(int y, int x, char **map)
 {
 	int		countY;
 
-	countX = -1;
+	countY = -1;
 	while (map[y++][x] == g_motif[2])
 		countY++;
 	return (countY);
@@ -27,8 +41,8 @@ char	**squarify(int y, int x, char **map)
 	int 	ox;
 	int		oy;
 
-	countX = count_x;
-	countY = count_y;
+	countX = count_x(x, map[y]);
+	countY = count_y(y, x, map);
 	ox = x;
 	oy = y;
 	while (countX > countY)
