@@ -6,21 +6,23 @@
 /*   By: glodenos <glodenos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2100/01/01 00:00:00 by glodenos          #+#    #+#             */
-/*   Updated: 2016/01/02 20:46:56 by bchaleil         ###   ########.fr       */
+/*   Updated: 2016/01/02 21:56:32 by bchaleil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lib.h"
 
-static int  filtered_x_ex(char *tab, int len, int i)
+char			*g_motif;
+
+static int	filtered_x_ex(char *tab, int len, int i)
 {
-	int     tmp;
+	int		tmp;
 
 	tmp = i;
 	while (len--)
 	{
 		i++;
-		if (tab[i] != '.') 
+		if (tab[i] != g_motif[0])
 			return (i);
 	}
 	return (tmp);
@@ -38,10 +40,10 @@ char		*filtered_x(char *tab, int len)
 		if (k == 0)
 			i = filtered_x_ex(tab, len, i);
 		k = 1;
-		if (tab[i] != '.') 
+		if (tab[i] != g_motif[0])
 			k = 0;
 		else
-			tab[i] = 'x';
+			tab[i] = g_motif[2];
 		i++;
 	}
 	return (tab);
@@ -58,10 +60,11 @@ char		**filtered_y(char **tab, int len, int x)
 	while (tab[i][0])
 	{
 		j = 0;
-		while (tab[i][x] == 'x' && j++ < len && (tab[i - f][x] != 'x' || i == 0))
-			if (tab[i + j][x] != 'x' || tab[i + j][x] == '\0')
+		while (tab[i][x] == g_motif[2] && j++ < len &&
+				(tab[i - f][x] != g_motif[2] || i == 0))
+			if (tab[i + j][x] != g_motif[2] || tab[i + j][x] == '\0')
 				while (j--)
-					tab[i + j][x] = '.';
+					tab[i + j][x] = g_motif[0];
 		i++;
 		f = 1;
 	}
