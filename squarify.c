@@ -6,7 +6,7 @@
 /*   By: bchaleil <hello@baptistechaleil.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/02 12:10:31 by bchaleil          #+#    #+#             */
-/*   Updated: 2016/01/02 17:17:10 by bchaleil         ###   ########.fr       */
+/*   Updated: 2016/01/02 22:05:41 by bchaleil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,49 +16,49 @@ char			*g_motif;
 
 static int	count_x(int x, char *map)
 {
-	int		countX;
+	int		cx;
 
-	countX = -1;
+	cx = -1;
 	while (map[x++] == g_motif[2])
-		countX++;
-	return (countX);
+		cx++;
+	return (cx);
 }
 
 static int	count_y(int y, int x, char **map)
 {
-	int		countY;
+	int		cy;
 
-	countY = -1;
+	cy = -1;
 	while (map[y++][x] == g_motif[2])
-		countY++;
-	return (countY);
+		cy++;
+	return (cy);
 }
 
-char	**squarify(int y, int x, char **map)
+char		**squarify(int y, int x, char **map)
 {
-	int		countX;
-	int		countY;
-	int 	ox;
+	int		cx;
+	int		cy;
+	int		ox;
 	int		oy;
 
 	rectanglify(y, x, map);
-	countX = count_x(x, map[y]);
-	countY = count_y(y, x, map);
+	cx = count_x(x, map[y]);
+	cy = count_y(y, x, map);
 	ox = x;
 	oy = y;
-	while (countX > countY)
+	while (cx > cy)
 	{
 		oy = y;
-		while (map[oy][x + countX] == g_motif[2])
-			map[oy++][x + countX] = g_motif[0];
-		countX--;
-	}	
-	while (countX < countY)
+		while (map[oy][x + cx] == g_motif[2])
+			map[oy++][x + cx] = g_motif[0];
+		cx--;
+	}
+	while (cx < cy)
 	{
 		ox = x;
-		while (map[y + countY][ox] == g_motif[2])
-			map[y + countY][ox++] = g_motif[0];
-		countY--;
-	}	
+		while (map[y + cy][ox] == g_motif[2])
+			map[y + cy][ox++] = g_motif[0];
+		cy--;
+	}
 	return (map);
 }
