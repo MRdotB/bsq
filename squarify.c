@@ -1,6 +1,5 @@
 char			*g_motif;
 
-/*
 static int	count_x(int x, char *map)
 {
 	int		countX;
@@ -20,23 +19,18 @@ static int	count_y(int y, int x, char **map)
 		countY++;
 	return (countY);
 }
-*/
 
-char	**square(int y, int x, char **map)
+char	**squarify(int y, int x, char **map)
 {
 	int		countX;
 	int		countY;
 	int 	ox;
 	int		oy;
 
-	countX = -1;
-	countY = -1;
+	countX = count_x;
+	countY = count_y;
 	ox = x;
 	oy = y;
-	while (map[y][ox++] == g_motif[2])
-		countX++;
-	while (map[oy++][x] == g_motif[2])
-		countY++;
 	while (countX > countY)
 	{
 		oy = y;

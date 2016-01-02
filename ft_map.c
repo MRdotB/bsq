@@ -97,7 +97,7 @@ static void			load_map_ex(int len)
 
 }
 
-void				load_map(void)
+void				load_map(void) // 26 lignes
 {
 	int				i;
 	int				len;
@@ -122,6 +122,6 @@ void				load_map(void)
 	while (++i < g_y)
 		tab[i] = low_gain(tab[i], len);
 	p = pos(tab);
-	tab = square(p[1], p[0], tab);
+	tab = squarify(p[1], p[0], tab);
 	print_bsq(tab, len);
 }

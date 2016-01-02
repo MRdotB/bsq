@@ -12,9 +12,9 @@
 
 NAME = bsq
 SRC = main.c	ft_putchar.c	ft_putstr.c		ft_putstr_err.c		\
-	  print_bsq.c		ft_strlen.c		ft_atoi.c				\
-	  matrix_sqrt.c		nucleus.c		\
-	  ft_concat.c		low_gain.c		ft_map.c square.c
+	  print_bsq.c		ft_strlen.c		ft_atoi.c	matrix_sqrt.c	\
+	  nucleus.c		ft_concat.c		low_gain.c		ft_map.c 		\
+	  squarify.c
 
 OBJ = $(SRC:.c=.o)
 CC = gcc
@@ -35,8 +35,8 @@ fclean: clean
 
 re: fclean $(NAME)
 
-test: fclean $(NAME)
+tests: fclean $(NAME)
 		@cp bsq tests/bsq
-		@cd tests && sh test.sh
+		@cd tests && zsh test.sh
 
  .PHONY: clean fclean
