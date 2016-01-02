@@ -6,7 +6,7 @@
 /*   By: bchaleil <hello@baptistechaleil.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/02 12:10:46 by bchaleil          #+#    #+#             */
-/*   Updated: 2016/01/02 22:02:24 by bchaleil         ###   ########.fr       */
+/*   Updated: 2016/01/02 22:03:28 by bchaleil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static char	**check_x(int y, int x, char **map)
 	return (map);
 }
 
-char	**rectanglify(int y, int x, char **map)
+char		**rectanglify(int y, int x, char **map)
 {
 	int fcy;
 	int cy;
