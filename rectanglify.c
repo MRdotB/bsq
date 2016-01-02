@@ -6,7 +6,7 @@
 /*   By: bchaleil <hello@baptistechaleil.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/02 12:10:46 by bchaleil          #+#    #+#             */
-/*   Updated: 2016/01/02 22:00:23 by bchaleil         ###   ########.fr       */
+/*   Updated: 2016/01/02 22:02:24 by bchaleil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,11 @@ static char	**check_x(int y, int x, char **map)
 
 	oy = y;
 	fcx = count_x(x, map[y]);
-	while (map[oy][x] == 'x')
+	while (map[oy][x] == g_motif[2])
 	{
 		cx = count_x(x, map[oy]);
 		while (fcx < cx)
-			map[oy][x + cx--] = '.';
+			map[oy][x + cx--] = g_motif[0];
 		if (fcx > cx)
 		{
 			fcx = cx;
@@ -69,12 +69,12 @@ char	**rectanglify(int y, int x, char **map)
 	ox = x;
 	oy = y;
 	fcy = count_y(y, x, map);
-	while (map[oy][ox] == 'x')
+	while (map[oy][ox] == g_motif[2])
 	{
 		oy = y;
 		cy = count_y(y, ox, map);
 		while (fcy < cy)
-			map[y + cy--][ox] = '.';
+			map[y + cy--][ox] = g_motif[0];
 		if (fcy > cy)
 		{
 			fcy = cy;
