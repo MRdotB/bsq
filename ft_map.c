@@ -6,14 +6,14 @@
 /*   By: glodenos <glodenos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2100/01/01 00:00:00 by glodenos          #+#    #+#             */
-/*   Updated: 2016/01/02 21:28:31 by bchaleil         ###   ########.fr       */
+/*   Updated: 2016/01/02 21:47:59 by bchaleil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lib.h"
 
 char			*g_motif;
-char			**tab;
+char			**g_tab;
 unsigned int	g_x;
 unsigned int	g_y;
 
@@ -54,7 +54,7 @@ static int			valid_map_ex(unsigned int i)
 	{
 		j = -1;
 		while (++j < g_x - 1)
-			if ((tab[i][j] != g_motif[0]) && (tab[i][j] != g_motif[1]))
+			if ((g_tab[i][j] != g_motif[0]) && (g_tab[i][j] != g_motif[1]))
 				return (0);
 	}
 	return (1);
@@ -68,18 +68,18 @@ int					valid_map(char *file)
 
 	i = -1;
 	fd = open(file, O_RDONLY);
-	if ((tab = (char**)matrix_sqrt(g_x + 1, g_y + 1)) == NULL)
+	if ((g_tab = (char**)matrix_sqrt(g_x + 1, g_y + 1)) == NULL)
 		return (0);
 	while (read(fd, &buf, 1) && buf != '\n')
 		;
-	while (read(fd, tab[++i], g_x + 1))
+	while (read(fd, g_tab[++i], g_x + 1))
 		if (i > g_y)
 			return (0);
 	close(fd);
 	if (i < g_y)
 		return (0);
 	while (--i)
-		if (tab[i][g_x] != '\n')
+		if (g_tab[i][g_x] != '\n')
 			return (0);
 	return (valid_map_ex(i));
 }
@@ -90,14 +90,13 @@ static void			load_map_ex(int len)
 
 	i = 0;
 	while (i < g_x)
-		tab = filtered_y(tab, len, i++);
+		g_tab = filtered_y(g_tab, len, i++);
 	i = -1;
 	while (++i < g_y)
-		tab[i] = low_gain(tab[i], len);
-
+		g_tab[i] = low_gain(g_tab[i], len);
 }
 
-void				load_map(void) // 26 lignes
+void				load_map(void)
 {
 	unsigned int	i;
 	int				len;
@@ -106,22 +105,22 @@ void				load_map(void) // 26 lignes
 	i = -1;
 	len = 1;
 	while (++i < g_y)
-		tab[i] = filtered_x(tab[i], len);
+		g_tab[i] = filtered_x(g_tab[i], len);
 	load_map_ex(len);
-	while (len_gain(tab) != 0)
+	while (len_gain(g_tab) != 0)
 		load_map_ex(++len);
 	len--;
 	i = -1;
 	while (++i < g_y)
-		tab[i] = filtered_x(tab[i], len);
+		g_tab[i] = filtered_x(g_tab[i], len);
 	load_map_ex(len);
 	i = 0;
 	while (i < g_y)
-		tab = filtered_y(tab, len, i++);
+		g_tab = filtered_y(g_tab, len, i++);
 	i = 0;
 	while (++i < g_y)
-		tab[i] = low_gain(tab[i], len);
-	p = pos(tab);
-	tab = squarify(p[1], p[0], tab);
-	print_bsq(tab, len);
+		g_tab[i] = low_gain(g_tab[i], len);
+	p = pos(g_tab);
+	g_tab = squarify(p[1], p[0], g_tab);
+	print_bsq(g_tab, len);
 }
