@@ -6,11 +6,13 @@
 /*   By: glodenos <glodenos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2100/01/01 00:00:00 by glodenos          #+#    #+#             */
-/*   Updated: 2016/01/02 22:06:36 by bchaleil         ###   ########.fr       */
+/*   Updated: 2016/01/02 22:23:19 by bchaleil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lib.h"
+
+char			*g_motif;
 
 static int	search_obstacle(char *tab)
 {
@@ -19,7 +21,7 @@ static int	search_obstacle(char *tab)
 	i = 0;
 	while (tab[i] != '\n' && tab[i])
 	{
-		if (tab[i] == 'x')
+		if (tab[i] == g_motif[2])
 			return (1);
 		i++;
 	}
