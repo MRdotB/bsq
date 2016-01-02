@@ -6,7 +6,7 @@
 /*   By: bchaleil <hello@baptistechaleil.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/02 12:10:31 by bchaleil          #+#    #+#             */
-/*   Updated: 2016/01/02 12:55:13 by bchaleil         ###   ########.fr       */
+/*   Updated: 2016/01/02 17:17:10 by bchaleil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ char	**squarify(int y, int x, char **map)
 	int 	ox;
 	int		oy;
 
+	rectanglify(y, x, map);
 	countX = count_x(x, map[y]);
 	countY = count_y(y, x, map);
 	ox = x;

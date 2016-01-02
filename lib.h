@@ -6,7 +6,7 @@
 /*   By: glodenos <glodenos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2100/01/01 00:00:00 by glodenos          #+#    #+#             */
-/*   Updated: 2100/01/01 00:00:00 by glodenos         ###   ########.fr       */
+/*   Updated: 2016/01/02 15:05:35 by bchaleil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@ int		*pos(char **tab);
 void	print_bsq(char **tab, int len);
 int		valid_map(char *file);
 char	**squarify(int x, int y, char **map);
+char	**rectanglify(int y, int x, char **map);
 
 #endif
