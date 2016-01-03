@@ -6,7 +6,7 @@
 /*   By: glodenos <glodenos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2100/01/01 00:00:00 by glodenos          #+#    #+#             */
-/*   Updated: 2016/01/02 21:47:59 by bchaleil         ###   ########.fr       */
+/*   Updated: 2016/01/03 16:41:41 by bchaleil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int					open_map(char *file)
 	while (read(fd, &buf, 1) && buf != '\n')
 		g_x++;
 	close(fd);
-	g_y = atoi(tmp);
+	g_y = ft_atoi(tmp);
 	while (tmp[i] >= '0' && tmp[i] <= '9')
 		i++;
 	if ((ft_strlen(tmp) - i) != 4)
