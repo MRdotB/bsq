@@ -55,6 +55,20 @@ func_cmp a map/valid_x20_y20_solved "1.map 20*20"
 # test2 Harder test
 ./bsq map/valid_x50_y50 > a
 func_cmp a map/valid_x50_y50_solved "2.map 50*50"
+
+# test3 edge case 1
+./bsq map/edge_case_1 > a
+func_cmp a map/edge_case_1_solved "3.edge case 1"
+
+# test4 edge case 2
+./bsq map/edge_case_2 > a
+func_cmp a map/edge_case_2_solved "3.edge case 2"
+
+# test5 edge case 3
+./bsq map/edge_case_3 > a
+func_cmp a map/edge_case_3_solved "3.edge case 3"
+
+# test6 
 #delete temp files
 rm a b
 echo "$B""_______________End tests_______________""$N"
