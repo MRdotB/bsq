@@ -6,7 +6,7 @@
 /*   By: glodenos <glodenos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2100/01/01 00:00:00 by glodenos          #+#    #+#             */
-/*   Updated: 2016/01/04 22:41:44 by glodenos         ###   ########.fr       */
+/*   Updated: 2016/01/04 22:50:48 by bchaleil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static int			valid_map_ex(unsigned int i)
 
 	while (--i)
 		if (g_tab[i][g_x] != '\n')
-			return (0);	
+			return (0);
 	while (++i < g_y)
 	{
 		j = -1;

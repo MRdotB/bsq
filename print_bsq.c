@@ -6,7 +6,7 @@
 /*   By: glodenos <glodenos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2100/01/01 00:00:00 by glodenos          #+#    #+#             */
-/*   Updated: 2016/01/04 18:19:07 by bchaleil         ###   ########.fr       */
+/*   Updated: 2016/01/04 22:51:55 by bchaleil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	print_bsq(void)
 
 	x = 0;
 	y = 0;
-	resolve();	
+	resolve();
 	while (g_tab[y][x])
 		ft_putstr(g_tab[y++]);
 	g_tab = free_sqrt(g_tab);
