@@ -6,7 +6,7 @@
 /*   By: glodenos <glodenos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2100/01/01 00:00:00 by glodenos          #+#    #+#             */
-/*   Updated: 2016/01/04 12:47:19 by bchaleil         ###   ########.fr       */
+/*   Updated: 2016/01/04 16:28:11 by bchaleil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,13 @@
 # include <unistd.h>
 # include <stdio.h> // TEMP
 
+typedef struct	s_square
+{
+	int size;
+	int x;
+	int y;
+}				t_square;
+
 int		ft_atoi(char *str);
 int		open_map(char *file);
 char	*ft_concat(char *str, char c);
@@ -29,6 +36,7 @@ int		ft_strlen(char *str);
 void	load_map(void);
 void	**matrix_sqrt(unsigned int x, unsigned int y);
 void	print_bsq(void);
+void	resolve(void);
 int		valid_map(char *file);
 
 #endif
