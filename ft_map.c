@@ -6,7 +6,7 @@
 /*   By: glodenos <glodenos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2100/01/01 00:00:00 by glodenos          #+#    #+#             */
-/*   Updated: 2016/01/03 16:41:41 by bchaleil         ###   ########.fr       */
+/*   Updated: 2016/01/04 12:39:12 by bchaleil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,45 +82,4 @@ int					valid_map(char *file)
 		if (g_tab[i][g_x] != '\n')
 			return (0);
 	return (valid_map_ex(i));
-}
-
-static void			load_map_ex(int len)
-{
-	unsigned int	i;
-
-	i = 0;
-	while (i < g_x)
-		g_tab = filtered_y(g_tab, len, i++);
-	i = -1;
-	while (++i < g_y)
-		g_tab[i] = low_gain(g_tab[i], len);
-}
-
-void				load_map(void)
-{
-	unsigned int	i;
-	int				len;
-	int				*p;
-
-	i = -1;
-	len = 1;
-	while (++i < g_y)
-		g_tab[i] = filtered_x(g_tab[i], len);
-	load_map_ex(len);
-	while (len_gain(g_tab) != 0)
-		load_map_ex(++len);
-	len--;
-	i = -1;
-	while (++i < g_y)
-		g_tab[i] = filtered_x(g_tab[i], len);
-	load_map_ex(len);
-	i = 0;
-	while (i < g_y)
-		g_tab = filtered_y(g_tab, len, i++);
-	i = 0;
-	while (++i < g_y)
-		g_tab[i] = low_gain(g_tab[i], len);
-	p = pos(g_tab);
-	g_tab = squarify(p[1], p[0], g_tab);
-	print_bsq(g_tab, len);
 }

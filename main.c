@@ -6,7 +6,7 @@
 /*   By: glodenos <glodenos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2100/01/01 00:00:00 by glodenos          #+#    #+#             */
-/*   Updated: 2016/01/02 21:44:27 by bchaleil         ###   ########.fr       */
+/*   Updated: 2016/01/04 12:46:49 by bchaleil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		main(int argc, char **argv)
 	{
 		if (open_map(argv[i]))
 			if (valid_map(argv[i]))
-				load_map();
+				print_bsq();
 			else
 				ft_putstr_err("map error\n");
 		else

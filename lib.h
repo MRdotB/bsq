@@ -6,7 +6,7 @@
 /*   By: glodenos <glodenos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2100/01/01 00:00:00 by glodenos          #+#    #+#             */
-/*   Updated: 2016/01/02 22:08:10 by bchaleil         ###   ########.fr       */
+/*   Updated: 2016/01/04 12:47:19 by bchaleil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,18 @@
 # include <sys/stat.h>
 # include <sys/types.h>
 # include <unistd.h>
+# include <stdio.h> // TEMP
 
-char	*filtered_x(char *tab, int len);
-char	**filtered_y(char **tab, int len, int x);
 int		ft_atoi(char *str);
+int		open_map(char *file);
 char	*ft_concat(char *str, char c);
 void	ft_putchar(char c);
 void	ft_putstr(char *str);
 void	ft_putstr_err(char *str);
 int		ft_strlen(char *str);
 void	load_map(void);
-char	*low_gain(char *tab, int len);
 void	**matrix_sqrt(unsigned int x, unsigned int y);
-int		*pos(char **tab);
-void	print_bsq(char **tab, int len);
+void	print_bsq(void);
 int		valid_map(char *file);
-char	**squarify(int x, int y, char **map);
-char	**rectanglify(int y, int x, char **map);
-int		open_map(char *file);
-int		len_gain(char **tab);
 
 #endif
