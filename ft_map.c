@@ -6,7 +6,7 @@
 /*   By: glodenos <glodenos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2100/01/01 00:00:00 by glodenos          #+#    #+#             */
-/*   Updated: 2016/01/04 22:50:48 by bchaleil         ###   ########.fr       */
+/*   Updated: 2016/01/04 23:32:40 by glodenos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,21 +23,20 @@ int					open_map(int fd)
 	unsigned int	i;
 	char			*tmp;
 
-	i = 0;
 	g_x = 0;
 	g_y = 0;
 	tmp = "\0";
 	while (read(fd, &buf, 1) && buf != '\n')
 		tmp = ft_concat(tmp, buf);
-	g_y = ft_atoi(tmp);
-	while (tmp[i] >= '0' && tmp[i++] <= '9')
-		;
-	if ((ft_strlen(tmp) - i) != 4)
+	if ((i = ft_strlen(tmp)) < 5)
 		return (0);
 	g_motif = (char *)malloc(sizeof(*g_motif) * 3);
-	g_motif[0] = tmp[i++];
-	g_motif[1] = tmp[i++];
-	g_motif[2] = tmp[i];
+	i--;
+	g_motif[2] = tmp[--i];
+	g_motif[1] = tmp[--i];
+	g_motif[0] = tmp[--i];	
+	tmp[i] = '\0';
+	g_y = ft_atoi(tmp);
 	free(tmp);
 	return (1);
 }
@@ -48,7 +47,7 @@ static int			valid_map_ex(unsigned int i)
 
 	while (--i)
 		if (g_tab[i][g_x] != '\n')
-			return (0);
+			return (0);	
 	while (++i < g_y)
 	{
 		j = -1;
