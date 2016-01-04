@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_bsq.c                                        :+:      :+:    :+:   */
+/*   free_sqrt.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glodenos <glodenos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2100/01/01 00:00:00 by glodenos          #+#    #+#             */
-/*   Updated: 2016/01/04 16:31:41 by bchaleil         ###   ########.fr       */
+/*   Updated: 2100/01/01 00:00:00 by glodenos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lib.h"
 
-char	**g_tab;
-char	*g_motif;
-int		g_x;
-int		g_y;
-void	print_bsq(void)
+char	**free_sqrt(char **tab)
 {
-	resolve();
-	int x = 0;
-	int y = 0;
-	while (g_tab[y][x])
-		ft_putstr(g_tab[y++]);
-	free_sqrt(g_tab);
+	int i;
+
+	i = -1;
+	while (tab[++i][0])
+		free(tab[i]);
+	free(tab[i]);
+	free(tab);
+	tab = NULL;
+	return (tab);
 }

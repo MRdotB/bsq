@@ -6,7 +6,7 @@
 /*   By: glodenos <glodenos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2100/01/01 00:00:00 by glodenos          #+#    #+#             */
-/*   Updated: 2016/01/04 16:28:11 by bchaleil         ###   ########.fr       */
+/*   Updated: 2016/01/04 16:33:07 by bchaleil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,6 @@ void	**matrix_sqrt(unsigned int x, unsigned int y);
 void	print_bsq(void);
 void	resolve(void);
 int		valid_map(char *file);
+char	**free_sqrt(char **tab);
 
 #endif
