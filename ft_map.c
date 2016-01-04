@@ -17,20 +17,7 @@ char			**g_tab;
 unsigned int	g_x;
 unsigned int	g_y;
 
-<<<<<<< HEAD
 int					open_map(int fd)
-=======
-static void			assign_motif(char *tmp, int i)
-{
-	g_motif = (char *)malloc(sizeof(*g_motif) * 3);
-	g_motif[0] = tmp[i++];
-	g_motif[1] = tmp[i++];
-	g_motif[2] = tmp[i];
-	free(tmp);
-}
-
-int					open_map(char *file)
->>>>>>> dae7f5b8100fc6230e71441d29a4204c87bbcbee
 {
 	char			buf;
 	unsigned int	i;
@@ -47,7 +34,11 @@ int					open_map(char *file)
 		;
 	if ((ft_strlen(tmp) - i) != 4)
 		return (0);
-	assign_motif(tmp, i);
+	g_motif = (char *)malloc(sizeof(*g_motif) * 3);
+	g_motif[0] = tmp[i++];
+	g_motif[1] = tmp[i++];
+	g_motif[2] = tmp[i];
+	free(tmp);
 	return (1);
 }
 
