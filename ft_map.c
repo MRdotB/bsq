@@ -17,6 +17,9 @@ char			**g_tab;
 unsigned int	g_x;
 unsigned int	g_y;
 
+<<<<<<< HEAD
+int					open_map(int fd)
+=======
 static void			assign_motif(char *tmp, int i)
 {
 	g_motif = (char *)malloc(sizeof(*g_motif) * 3);
@@ -27,9 +30,9 @@ static void			assign_motif(char *tmp, int i)
 }
 
 int					open_map(char *file)
+>>>>>>> dae7f5b8100fc6230e71441d29a4204c87bbcbee
 {
 	char			buf;
-	int				fd;
 	unsigned int	i;
 	char			*tmp;
 
@@ -37,16 +40,11 @@ int					open_map(char *file)
 	g_x = 0;
 	g_y = 0;
 	tmp = "\0";
-	if ((fd = open(file, O_RDONLY)) == -1)
-		return (0);
 	while (read(fd, &buf, 1) && buf != '\n')
 		tmp = ft_concat(tmp, buf);
-	while (read(fd, &buf, 1) && buf != '\n')
-		g_x++;
-	close(fd);
 	g_y = ft_atoi(tmp);
-	while (tmp[i] >= '0' && tmp[i] <= '9')
-		i++;
+	while (tmp[i] >= '0' && tmp[i++] <= '9')
+		;
 	if ((ft_strlen(tmp) - i) != 4)
 		return (0);
 	assign_motif(tmp, i);
@@ -67,26 +65,31 @@ static int			valid_map_ex(unsigned int i)
 	return (1);
 }
 
-int					valid_map(char *file)
+int					valid_map(int fd)
 {
 	char			buf;
-	int				fd;
 	unsigned int	i;
+	char			*tmp;
 
-	i = -1;
-	fd = open(file, O_RDONLY);
+	while (read(fd, &buf, 1) && buf != '\n')
+	{
+		if ((buf != g_motif[0]) && (buf != g_motif[1]))
+			return (0);
+		tmp = ft_concat(tmp, buf);
+		g_x++;
+	}
+	tmp = ft_concat(tmp, buf);
 	if ((g_tab = (char**)matrix_sqrt(g_x + 1, g_y + 1)) == NULL)
 		return (0);
-	while (read(fd, &buf, 1) && buf != '\n')
-		;
+	g_tab[0] = tmp;
+	i = 0;
 	while (read(fd, g_tab[++i], g_x + 1))
 		if (i > g_y)
 			return (0);
-	close(fd);
 	if (i < g_y)
 		return (0);
 	while (--i)
 		if (g_tab[i][g_x] != '\n')
-			return (0);
+			return (0);	
 	return (valid_map_ex(i));
 }

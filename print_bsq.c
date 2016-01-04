@@ -22,8 +22,8 @@ void	print_bsq(void)
 
 	x = 0;
 	y = 0;
-	resolve();
+	resolve();	
 	while (g_tab[y][x])
 		ft_putstr(g_tab[y++]);
-	free_sqrt(g_tab);
+	g_tab = free_sqrt(g_tab);
 }

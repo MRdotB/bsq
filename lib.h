@@ -27,7 +27,7 @@ typedef struct	s_square
 }				t_square;
 
 int		ft_atoi(char *str);
-int		open_map(char *file);
+int		open_map(int fd);
 char	*ft_concat(char *str, char c);
 void	ft_putchar(char c);
 void	ft_putstr(char *str);
@@ -37,7 +37,7 @@ void	load_map(void);
 void	**matrix_sqrt(unsigned int x, unsigned int y);
 void	print_bsq(void);
 void	resolve(void);
-int		valid_map(char *file);
+int		valid_map(int fd);
 char	**free_sqrt(char **tab);
 
 #endif

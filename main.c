@@ -12,22 +12,30 @@
 
 #include "lib.h"
 
-int		main(int argc, char **argv)
+static	void	lunch_BSQ(int fd)
 {
-	int	i;
-
-	i = 0;
-	if (argc == 1)
-		return (0);
-	while (++i < argc)
-	{
-		if (open_map(argv[i]))
-			if (valid_map(argv[i]))
-				print_bsq();
-			else
-				ft_putstr_err("map error\n");
+	if (open_map(fd))
+		if (valid_map(fd))
+			print_bsq();
 		else
 			ft_putstr_err("map error\n");
-	}
+	else
+		ft_putstr_err("map error\n");
+}
+
+int				main(int argc, char **argv)
+{
+	int			i;
+	int			fd;
+
+	i = 0;
+	fd = 0;
+	if (argc == 1)
+		lunch_BSQ(fd);
+	while (++i < argc)
+		if ((fd = open(argv[i], O_RDONLY)) > -1)
+			lunch_BSQ(fd);
+		else
+			ft_putstr_err("map error\n");
 	return (0);
 }
