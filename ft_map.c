@@ -6,7 +6,7 @@
 /*   By: glodenos <glodenos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2100/01/01 00:00:00 by glodenos          #+#    #+#             */
-/*   Updated: 2016/01/04 18:34:58 by bchaleil         ###   ########.fr       */
+/*   Updated: 2016/01/04 22:41:44 by glodenos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,9 @@ static int			valid_map_ex(unsigned int i)
 {
 	unsigned int	j;
 
+	while (--i)
+		if (g_tab[i][g_x] != '\n')
+			return (0);	
 	while (++i < g_y)
 	{
 		j = -1;
@@ -62,6 +65,7 @@ int					valid_map(int fd)
 	unsigned int	i;
 	char			*tmp;
 
+	tmp = "\0";
 	while (read(fd, &buf, 1) && buf != '\n')
 	{
 		if ((buf != g_motif[0]) && (buf != g_motif[1]))
@@ -79,8 +83,5 @@ int					valid_map(int fd)
 			return (0);
 	if (i < g_y)
 		return (0);
-	while (--i)
-		if (g_tab[i][g_x] != '\n')
-			return (0);	
 	return (valid_map_ex(i));
 }
