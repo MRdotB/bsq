@@ -6,7 +6,7 @@
 /*   By: glodenos <glodenos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2100/01/01 00:00:00 by glodenos          #+#    #+#             */
-/*   Updated: 2016/01/04 12:39:12 by bchaleil         ###   ########.fr       */
+/*   Updated: 2016/01/04 13:36:20 by bchaleil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int					open_map(char *file)
 
 	i = 0;
 	g_x = 0;
+	g_y = 0;
 	tmp = "\0";
 	if ((fd = open(file, O_RDONLY)) == -1)
 		return (0);
@@ -43,6 +44,7 @@ int					open_map(char *file)
 	g_motif[0] = tmp[i++];
 	g_motif[1] = tmp[i++];
 	g_motif[2] = tmp[i];
+	free(tmp);
 	return (1);
 }
 
