@@ -14,13 +14,15 @@
 
 char	**g_tab;
 char	*g_motif;
-int		g_x;
-int		g_y;
+
 void	print_bsq(void)
 {
+	int x;
+	int y;
+	
+	x = 0;
+	y = 0;
 	resolve();
-	int x = 0;
-	int y = 0;
 	while (g_tab[y][x])
 		ft_putstr(g_tab[y++]);
 	free_sqrt(g_tab);

@@ -16,10 +16,10 @@ int		main(int argc, char **argv)
 {
 	int	i;
 
-	i = 1;
+	i = 0;
 	if (argc == 1)
 		return (0);
-	while (i < argc)
+	while (++i < argc)
 	{
 		if (open_map(argv[i]))
 			if (valid_map(argv[i]))
@@ -28,7 +28,6 @@ int		main(int argc, char **argv)
 				ft_putstr_err("map error\n");
 		else
 			ft_putstr_err("map error\n");
-		i++;
 	}
 	return (0);
 }

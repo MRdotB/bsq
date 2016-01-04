@@ -12,27 +12,21 @@
 
 #include "lib.h"
 
-char			*g_motif;
-char			**g_tab;
-
-
+char	*g_motif;
+char	**g_tab;
 
 int		biggest_square(int size, int pos_y, int pos_x)
 {
 	int x;
 	int y;
 
-	y = 0;
-	while (y < size)
+	y = -1;
+	while (++y < size)
 	{
 		x = 0;
 		while (x < size)
-		{
-			if (g_tab[pos_y + y][pos_x + x] != '.')
+			if (g_tab[pos_y + y][pos_x + x++] != g_motif[0])
 				return (0);
-			x++;
-		}
-		y++;
 	}
 	return (1);
 }
@@ -42,16 +36,12 @@ void	render_square(int size, int pos_y, int pos_x)
 	int x;
 	int y;
 
-	y = 0;
-	while (y < size)
+	y = -1;
+	while (++y < size)
 	{
 		x = 0;
 		while (x < size)
-		{
-			g_tab[pos_y + y][pos_x + x] = 'x';
-			x++;
-		}
-		y++;
+			g_tab[pos_y + y][pos_x + x++] = g_motif[2];	
 	}
 }
 
@@ -61,12 +51,12 @@ void	resolve(void)
 	int x;
 	int y;
 
-	y = 0;
+	y = -1;
 	r.size = 0;
-	while (g_tab[y][0])
+	while (g_tab[++y][0])
 	{
-		x = 0;
-		while (g_tab[y][x])
+		x = -1;
+		while (g_tab[y][++x])
 		{
 			while (biggest_square(r.size + 1, y, x))
 			{
@@ -74,9 +64,7 @@ void	resolve(void)
 				r.y = y;
 				r.size++;
 			}
-			x++;
 		}
-		y++;
 	}
 	render_square(r.size, r.y, r.x);
 }

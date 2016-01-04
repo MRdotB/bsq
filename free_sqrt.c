@@ -14,13 +14,5 @@
 
 char	**free_sqrt(char **tab)
 {
-	int i;
-
-	i = -1;
-	while (tab[++i][0])
-		free(tab[i]);
-	free(tab[i]);
-	free(tab);
-	tab = NULL;
-	return (tab);
+	return (tab = (char **)malloc(sizeof(char**)));
 }
