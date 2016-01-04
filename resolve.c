@@ -6,7 +6,7 @@
 /*   By: bchaleil <hello@baptistechaleil.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 13:12:54 by bchaleil          #+#    #+#             */
-/*   Updated: 2016/01/04 16:28:08 by bchaleil         ###   ########.fr       */
+/*   Updated: 2016/01/04 18:35:27 by bchaleil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 char	*g_motif;
 char	**g_tab;
 
-int		biggest_square(int size, int pos_y, int pos_x)
+static int		biggest_square(int size, int pos_y, int pos_x)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	y = -1;
 	while (++y < size)
@@ -31,25 +31,25 @@ int		biggest_square(int size, int pos_y, int pos_x)
 	return (1);
 }
 
-void	render_square(int size, int pos_y, int pos_x)
+static void		render_square(int size, int pos_y, int pos_x)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	y = -1;
 	while (++y < size)
 	{
 		x = 0;
 		while (x < size)
-			g_tab[pos_y + y][pos_x + x++] = g_motif[2];	
+			g_tab[pos_y + y][pos_x + x++] = g_motif[2];
 	}
 }
 
-void	resolve(void)
+void			resolve(void)
 {
-	t_square r;
-	int x;
-	int y;
+	t_square	r;
+	int			x;
+	int			y;
 
 	y = -1;
 	r.size = 0;

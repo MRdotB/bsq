@@ -6,7 +6,7 @@
 /*   By: glodenos <glodenos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2100/01/01 00:00:00 by glodenos          #+#    #+#             */
-/*   Updated: 2016/01/04 13:36:20 by bchaleil         ###   ########.fr       */
+/*   Updated: 2016/01/04 18:34:58 by bchaleil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,15 @@ char			*g_motif;
 char			**g_tab;
 unsigned int	g_x;
 unsigned int	g_y;
+
+static void			assign_motif(char *tmp, int i)
+{
+	g_motif = (char *)malloc(sizeof(*g_motif) * 3);
+	g_motif[0] = tmp[i++];
+	g_motif[1] = tmp[i++];
+	g_motif[2] = tmp[i];
+	free(tmp);
+}
 
 int					open_map(char *file)
 {
@@ -40,11 +49,7 @@ int					open_map(char *file)
 		i++;
 	if ((ft_strlen(tmp) - i) != 4)
 		return (0);
-	g_motif = (char *)malloc(sizeof(*g_motif) * 3);
-	g_motif[0] = tmp[i++];
-	g_motif[1] = tmp[i++];
-	g_motif[2] = tmp[i];
-	free(tmp);
+	assign_motif(tmp, i);
 	return (1);
 }
 
