@@ -6,7 +6,7 @@
 /*   By: glodenos <glodenos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2100/01/01 00:00:00 by glodenos          #+#    #+#             */
-/*   Updated: 2016/01/04 23:32:40 by glodenos         ###   ########.fr       */
+/*   Updated: 2016/01/04 23:36:30 by bchaleil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int					open_map(int fd)
 	i--;
 	g_motif[2] = tmp[--i];
 	g_motif[1] = tmp[--i];
-	g_motif[0] = tmp[--i];	
+	g_motif[0] = tmp[--i];
 	tmp[i] = '\0';
 	g_y = ft_atoi(tmp);
 	free(tmp);
@@ -47,7 +47,7 @@ static int			valid_map_ex(unsigned int i)
 
 	while (--i)
 		if (g_tab[i][g_x] != '\n')
-			return (0);	
+			return (0);
 	while (++i < g_y)
 	{
 		j = -1;
